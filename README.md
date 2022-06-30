@@ -2,6 +2,8 @@
 
 A Study-Together platform to help create a healthy environment of knowledge where people can discuss their topics of interest in various rooms publicly.
 
+[![StudyBud_screenshot][preview.png]](https://samrat-studybud.herokuapp.com)
+
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>

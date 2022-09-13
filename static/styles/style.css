@@ -1,15 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 
 :root {
-  --color-main: #71c6dd;
-  --color-main-light: #e1f6fb;
-  --color-dark: #3f4156;
-  --color-dark-medium: #51546e;
-  --color-dark-light: #696d97;
-  --color-light: #e5e5e5;
-  --color-gray: #8b8b8b;
-  --color-light-gray: #b2bdbd;
-  --color-bg: #2d2d39;
+  --color-theme: 120;
+  --color-main: hsl(var(--color-theme), 61%, 65%);
+  --color-main-light: hsl(var(--color-theme), 77%, 93%);
+  --color-dark: hsl(var(--color-theme), 15%, 25%);
+  --color-dark-medium: hsl(var(--color-theme), 15%, 37%);
+  --color-dark-light: hsl(var(--color-theme), 18%, 45%);
+  --color-light: hsl(var(--color-theme), 0%, 90%);
+  --color-gray: hsl(var(--color-theme), 0%, 62%);
+  --color-light-gray: hsl(var(--color-theme), 8%, 72%);
+  --color-bg: hsl(var(--color-theme), 12%, 15%);
   --color-success: #5dd693;
   --color-error: #fc4b0b;
 }
@@ -317,6 +318,10 @@ a {
   color: var(--color-light);
 }
 
+.header__search input::placeholder {
+  color: var(--color-light-gray);
+}
+
 @media screen and (max-width: 800px) {
   .header__search input {
     width: 20rem;
@@ -424,7 +429,7 @@ a {
 .layout__box {
   width: 90%;
   max-width: 48rem;
-  min-height: 40rem;
+  height: 80%;
   position: absolute;
   top: 15%;
   left: 50%;
@@ -432,7 +437,6 @@ a {
   background-color: var(--color-dark);
   border-radius: 1rem;
   box-shadow: 1px 1px 6px 3px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
 }
 
 .layout__boxHeader {
@@ -461,6 +465,8 @@ a {
 
 .layout__body {
   margin: 3rem;
+  height: 83%;
+  overflow: auto;
 }
 
 @media screen and (max-width: 900px) {
@@ -752,6 +758,11 @@ a {
   font-size: 1.4rem;
 }
 
+.activities__container {
+  height: 90%;
+  overflow: auto;
+}
+
 .activities__box {
   margin: 1.5rem;
   padding: 1.5rem;
@@ -876,7 +887,7 @@ a {
   font-weight: 400;
 }
 
-.profile__info p {
+.profile__username {
   color: var(--color-main);
   font-weight: 500;
   margin-bottom: 1rem;

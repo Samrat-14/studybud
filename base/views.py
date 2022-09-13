@@ -6,14 +6,9 @@ from django.db.models import Q
 from django.contrib.auth import authenticate, login, logout
 from .models import Room, Topic, Message, User
 from .forms import RoomForm, UserForm, MyUserCreationForm
+from django.contrib.auth.password_validation import password_validators_help_text_html
 
 # Create your views here.
-
-# rooms = [
-#     {'id': 1, 'name': 'Lets learn python!'},
-#     {'id': 2, 'name': 'Design with me'},
-#     {'id': 3, 'name': 'Frontend developers'},
-# ]
 
 def loginPage(request):
     page = 'login'
@@ -28,7 +23,7 @@ def loginPage(request):
         try:
             user = User.objects.get(email=email)
         except:
-            messages.error(request, 'User does not exist')
+            messages.error(request, 'User does not exist!')
 
         user = authenticate(request, email=email, password=password)
 
@@ -36,7 +31,7 @@ def loginPage(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, 'Username or Password does not exist')
+            messages.error(request, 'Username or Password is incorrect!')
 
     context = {'page': page}
     return render(request, 'base/login_register.html', context)
@@ -57,7 +52,8 @@ def registerPage(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, 'An error occurred during registration')
+            errors = password_validators_help_text_html()
+            messages.error(request, errors)
 
     return render(request, 'base/login_register.html', {'form': form})
 
@@ -82,6 +78,14 @@ def room(request, pk):
     participants = room.participants.all()
 
     if request.method == 'POST':
+        if request.POST.get("form-type") == "join-room":
+            room.participants.add(request.user)
+            return redirect('room', pk=room.id)
+
+        if request.POST.get("form-type") == "leave-room":
+            room.participants.remove(request.user)
+            return redirect('room', pk=room.id)
+
         message = Message.objects.create(
             user = request.user,
             room = room,
@@ -95,9 +99,19 @@ def room(request, pk):
 
 def userProfile(request, pk):
     user = User.objects.get(id=pk)
-    rooms = user.room_set.all()
+    # rooms = user.room_set.all()
+    rooms = Room.objects.filter(participants__name__exact=user.name)
     room_messages = user.message_set.all()
     topics = Topic.objects.all()
+
+    if request.method == 'POST':
+        if request.POST.get("form-type") == "follow":
+            user.followers.add(request.user)
+            return redirect('user-profile', pk=user.id)
+
+        if request.POST.get("form-type") == "unfollow":
+            user.followers.remove(request.user)
+            return redirect('user-profile', pk=user.id)
 
     context = {'user': user, 'rooms': rooms, 'room_messages': room_messages, 'topics': topics}
     return render(request, 'base/profile.html', context)
@@ -111,12 +125,13 @@ def createRoom(request):
         topic_name = request.POST.get('topic')
         topic, created = Topic.objects.get_or_create(name=topic_name)
 
-        Room.objects.create(
+        room = Room.objects.create(
             host=request.user,
             topic=topic,
             name=request.POST.get('name'),
             description=request.POST.get('description')
         )
+        room.participants.add(request.user)
 
         return redirect('home')
 
@@ -211,5 +226,5 @@ def topicsPage(request):
     return render(request, 'base/topics.html', {'topics': topics})
 
 def activityPage(request):
-    room_messages = Message.objects.all()
+    room_messages = Message.objects.all()[0:25]
     return render(request, 'base/activity.html', {'room_messages': room_messages})

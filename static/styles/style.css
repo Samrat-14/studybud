@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 
 :root {
-  --color-theme: 120;
+  --color-theme: 180;
   --color-main: hsl(var(--color-theme), 61%, 65%);
   --color-main-light: hsl(var(--color-theme), 77%, 93%);
   --color-dark: hsl(var(--color-theme), 15%, 25%);

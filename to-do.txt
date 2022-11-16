@@ -1,23 +1,26 @@
-* $. CSS Changes
-* $. Joined Logo Profile
-* $. Join/Leave Button in Room
-* $. Limit Recent Activities to 25
-* $. Show Participated Rooms in Profile
-* $. Follow Profile Feature
-* $. Sign Up Password Bug
-* $. Logo Change
-  $. Add more Settings feature
-  $. Social media handle
-  $. Light/Dark mode
-  $. Generate QR Code
-  $. Fill Searchbar with searched content
-  $. Solve Update-user / Settings update-without-photo bug 
-  $. Add Top Hosts component
-  $. Pagination in Rooms Component
-  $. Logged In/Out Message
-  $. Multiple Tags
-  $. 'created room', 'deleted room' in Recent Activities
-  $. Database Deployment Bug
-  $. Online/Offline Feature
-  $. Async Chat
-  $. Notification Feature for new messages in Followed Rooms
+[*] CSS Changes
+[*] Joined Logo Profile
+[*] Join/Leave Button in Room
+[*] Limit Recent Activities to 25
+[*] Show Participated Rooms in Profile
+[*] Follow Profile Feature
+[*] Sign Up Password Bug
+[*] Logo Change
+[ ] AWS S3 Bucket
+[ ] Add more Settings feature
+[ ] Social media handle
+[ ] Light/Dark mode
+[ ] Generate QR Code
+[ ] Fill Searchbar with searched content
+[ ] Solve Update-user / Settings update-without-photo bug 
+[ ] Add Top Hosts component
+[ ] Pagination in Rooms Component
+[ ] Logged In/Out Message
+[ ] Multiple Tags
+[ ] 'created room', 'deleted room' in Recent Activities
+[ ] Database Deployment Bug
+[ ] Online/Offline Feature
+[ ] Async Chat
+[ ] Notification Feature for new messages in Followed Rooms
+[ ] Book Store
+[ ] Share reading instance part live

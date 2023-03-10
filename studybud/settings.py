@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-u=)4pw^oq-!u!z)daj%uhutmj3%vw05=kxka18lmv0%dm^^vj%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['samrat-studybud.up.railway.app', 'samrat-studybud.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['samrat-studybud.up.railway.app', 'samrat-studybud.onrender.com', '127.0.0.1']
 
 
 # Application definition
@@ -105,15 +105,15 @@ AUTH_PASSWORD_VALIDATORS = [
     # {
     #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     # },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    # },
     # {
     #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     # },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    # },
 ]
 
 

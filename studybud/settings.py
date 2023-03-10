@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-u=)4pw^oq-!u!z)daj%uhutmj3%vw05=kxka18lmv0%dm^^vj%
 DEBUG = True
 
 ALLOWED_HOSTS = ['samrat-studybud.up.railway.app', 'samrat-studybud.onrender.com', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://samrat-studybud.up.railway.app']
 
 
 # Application definition
